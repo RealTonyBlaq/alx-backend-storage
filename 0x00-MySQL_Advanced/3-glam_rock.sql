@@ -2,4 +2,5 @@
 SELECT band_name, COALESCE(split, 0) - COALESCE(formed, 0) AS lifespan
 FROM metal_bands
 WHERE split <= 2022
-
+GROUP BY band_name
+ORDER BY lifespan DESC;
