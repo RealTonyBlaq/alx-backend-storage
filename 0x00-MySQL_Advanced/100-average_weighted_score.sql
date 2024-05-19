@@ -8,4 +8,5 @@ BEGIN
     SELECT AVG(score * projects.weight)
     FROM corrections
     INNER JOIN projects
-    ON 
+    ON project_id = projects.id
+    
