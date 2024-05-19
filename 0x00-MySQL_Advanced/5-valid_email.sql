@@ -3,4 +3,5 @@
 DELIMITER $$
 
 CREATE TRIGGER reset_attribute
+AFTER UPDATE ON users
 
