@@ -4,7 +4,8 @@ DELIMITER $$
 
 CREATE PROCEDURE AddBonus ( IN user_id INT, IN project_name VARCHAR(256), IN score INT)
 BEGIN
-    SET @my_project_id = (SELECT id FROM projects WHERE name = project_name);
+    SELECT id INTO @my_project_id 
+    FROM projects WHERE name = project_name;
     INSERT INTO corrections (user_id, project_id, score)
     VALUES (user_id, @my_project_id, score);
 END$$
