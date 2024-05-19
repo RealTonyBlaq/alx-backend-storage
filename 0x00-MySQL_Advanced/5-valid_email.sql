@@ -4,4 +4,6 @@ DELIMITER $$
 
 CREATE TRIGGER reset_attribute
 AFTER UPDATE ON users
-
+FOR EACH ROW
+BEGIN
+    IF 
