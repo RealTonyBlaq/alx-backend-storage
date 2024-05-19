@@ -3,7 +3,7 @@
 
 DELIMITER $$
 
-CREATE PROCEDURE ComputeAverageScoreForUser ( user_id INT)
+CREATE PROCEDURE ComputeAverageScoreForUser ( IN user_id INT)
 BEGIN
     SELECT AVG(score) INTO @my_average
     FROM corrections
