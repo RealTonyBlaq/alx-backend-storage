@@ -12,4 +12,5 @@ BEGIN
     WHERE user_id = u_id;
     -- Storing the weighted average to the user
     UPDATE users
-    
+    SET average_score = @wasc
+    WHERE 
