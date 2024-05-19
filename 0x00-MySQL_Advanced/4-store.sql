@@ -5,4 +5,4 @@ AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
 UPDATE TABLE items
-SET 
+SET quantity =
