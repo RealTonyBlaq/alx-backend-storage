@@ -6,4 +6,5 @@ FOR EACH ROW
 BEGIN
 UPDATE TABLE items
 SET quantity = items.quantity - NEW.number
-WHERE 
+WHERE name = NEW.item_name;
+END;
