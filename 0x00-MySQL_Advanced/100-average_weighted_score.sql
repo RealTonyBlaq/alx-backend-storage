@@ -5,4 +5,4 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser (IN u_id INT)
 BEGIN
-    SELECT 
+    SELECT score * pro
