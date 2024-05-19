@@ -5,6 +5,9 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageScoreForUser ( user_id INT)
 BEGIN
-    SELECT AVERAGE(score)
+    SELECT AVERAGE(score) INTO @
     FROM corrections
-    WHERE user_id = user_id
+    WHERE user_id = user_id;
+END$$
+
+DELIMITER ;
