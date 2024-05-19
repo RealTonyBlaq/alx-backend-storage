@@ -5,4 +5,5 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageScoreForUser ( user_id INT)
 BEGIN
-    SELECT AVERAGE()
+    SELECT AVERAGE(score)
+    
