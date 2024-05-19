@@ -6,4 +6,5 @@ CREATE TRIGGER reset_attribute
 BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
-    IF EXISTS NEW.email != OLD.email 
+    IF EXISTS NEW.email AND NEW.email != OLD.email THEN
+        
