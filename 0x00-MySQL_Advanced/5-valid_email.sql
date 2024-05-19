@@ -13,4 +13,6 @@ BEGIN
             SET valid_email = 0
         END IF;
     END IF;
-END
+END$$
+
+DELIMITER ;
