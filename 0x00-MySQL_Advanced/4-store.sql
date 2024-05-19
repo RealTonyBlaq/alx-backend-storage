@@ -2,5 +2,5 @@
 
 CREATE TRIGGER update_items
 AFTER INSERT ON orders
-FOR EACH ROW ON items
+FOR EACH ROW
 BEGIN
