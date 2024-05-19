@@ -10,3 +10,4 @@ BEGIN
     INNER JOIN projects
     ON project_id = projects.id
     WHERE user_id = u_id;
+    UPDATE
