@@ -10,7 +10,7 @@ BEGIN
     WHERE user_id = u_id;
     UPDATE users
     SET average_score = @my_average
-    WHERE id = user_id;
+    WHERE id = u_id;
 END$$
 
 DELIMITER ;
