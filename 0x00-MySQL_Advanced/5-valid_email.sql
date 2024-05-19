@@ -7,4 +7,5 @@ BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
     IF EXISTS NEW.email AND NEW.email != OLD.email THEN
-        IF OLD.valid_email =
+        IF OLD.valid_email = 0 THEN
+        SET OLD.valid_email = 1
