@@ -3,4 +3,4 @@
 
 DELIMITER $$
 
-CREATE PROCEDURE ComputeAverageScoreForUser ()
+CREATE PROCEDURE ComputeAverageScoreForUser ( user_id INT)
