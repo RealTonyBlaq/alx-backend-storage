@@ -5,4 +5,5 @@ AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
 UPDATE TABLE items
-SET quantity = OLD.quantity - NEW.
+SET quantity = items.quantity - NEW.number
+WHERE 
