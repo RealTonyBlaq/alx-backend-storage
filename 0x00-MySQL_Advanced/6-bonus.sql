@@ -4,4 +4,5 @@ DELIMITER $$
 
 CREATE PROCEDURE AddBonus ( IN user_id INT, IN project_name VARCHAR(256), IN score INT)
 BEGIN
-    SELECT name 
+    SELECT id FROM projects
+    WHERE name = project_name;
