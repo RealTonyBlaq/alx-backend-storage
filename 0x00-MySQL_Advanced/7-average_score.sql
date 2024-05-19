@@ -8,7 +8,8 @@ BEGIN
     SELECT AVERAGE(score) INTO @my_average
     FROM corrections
     WHERE user_id = user_id;
-    
+    UPDATE users
+    SET average_score = @
 END$$
 
 DELIMITER ;
