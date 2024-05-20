@@ -3,4 +3,4 @@
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
-    FOR EACH ROW IN 
+    FOR EACH ROW IN SELECT id 
