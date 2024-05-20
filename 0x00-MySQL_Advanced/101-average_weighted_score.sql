@@ -4,3 +4,14 @@
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
     FOR EACH ROW @u_id IN (SELECT id FROM users;)
+        SELECT SUM(weight) INTO @wght FROM projects;
+        SELECT SUM(score * projects.weight / @wght) INTO @wasc
+        FROM corrections
+        RIGHT JOIN projects
+    ON corrections.project_id = projects.id
+    WHERE corrections.user_id = u_id;
+
+    -- Storing the weighted average to the user
+    UPDATE users
+    SET average_score = @wasc
+    WHERE id = u_id;
