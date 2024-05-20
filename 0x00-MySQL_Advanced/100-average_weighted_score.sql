@@ -7,7 +7,7 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser (IN u_id INT)
 BEGIN
-    SELECT SUM(weight) FROM projects
+    SELECT SUM(weight) INTO @wght FROM projects;
     SELECT AVG(score * projects.weight) INTO @wasc
     FROM corrections
     RIGHT JOIN projects
