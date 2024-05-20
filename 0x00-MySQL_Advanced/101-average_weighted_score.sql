@@ -11,6 +11,8 @@ BEGIN
 
     OPEN user_cursor;
 
+    read
+
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
