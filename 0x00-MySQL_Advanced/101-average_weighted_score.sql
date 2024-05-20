@@ -12,7 +12,8 @@ BEGIN
     OPEN user_cursor;
 
     read_loop: LOOP
-    
+        FETCH user_cursor INTO u_id;
+        
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
