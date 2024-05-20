@@ -5,7 +5,7 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
-    FOR EACH ROW IN (SELECT id  FROM users;)
+    FOR EACH ROW (SELECT id FROM users;) INTO @u_id
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
