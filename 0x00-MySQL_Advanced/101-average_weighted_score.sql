@@ -13,7 +13,10 @@ BEGIN
 
     read_loop: LOOP
         FETCH user_cursor INTO u_id;
-        
+
+        IF DONE THEN
+            LEAVE read_loop;
+        END I
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
