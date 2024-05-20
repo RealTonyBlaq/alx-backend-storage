@@ -5,6 +5,7 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
+    DECL
     DECLARE done BOOLEAN DEFAULT FALSE;
     DECLARE user_cursor CURSOR FOR SELECT id FROM users;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
@@ -29,7 +30,7 @@ BEGIN
         UPDATE users
         SET average_score = @wasc
         WHERE id = u_id;
-    END user_cursor;
+    END LOOP read_loop;
 END$$
 
 DELIMITER ;
