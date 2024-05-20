@@ -5,8 +5,9 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
-    DECLARE done BOOLEAN DEFAULT FALSE
+    DECLARE done BOOLEAN DEFAULT FALSE;
     DECLARE user_cursor CURSOR FOR SELECT id FROM users;
+    DEL
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
