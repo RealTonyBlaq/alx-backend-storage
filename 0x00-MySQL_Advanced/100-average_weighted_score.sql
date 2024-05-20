@@ -10,7 +10,7 @@ BEGIN
     LEFT JOIN projects
     ON project_id = projects.id
     WHERE user_id = u_id;
-    -- Storing the weighted average to the user
+    -- Storing the weighted average to the user.
     UPDATE users
     SET average_score = @wasc
     WHERE id = u_id;
