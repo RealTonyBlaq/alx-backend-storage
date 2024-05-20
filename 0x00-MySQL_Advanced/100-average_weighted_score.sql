@@ -9,7 +9,7 @@ CREATE PROCEDURE ComputeAverageWeightedScoreForUser (IN u_id INT)
 BEGIN
     SELECT AVG(score * projects.weight) INTO @wasc
     FROM corrections
-    JOIN projects
+    RIGHT JOIN projects
     ON corrections.project_id = projects.id
     WHERE corrections.user_id = u_id;
 
