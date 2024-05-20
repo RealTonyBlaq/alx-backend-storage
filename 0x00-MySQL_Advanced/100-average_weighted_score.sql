@@ -1,13 +1,15 @@
 -- script that creates a stored procedure ComputeAverageWeightedScoreForUser
 -- that computes and store the average weighted score for a student.
 
+DROP PROCEDURE ComputeAverageWeightedScoreForUser;
+
 DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser (IN u_id INT)
 BEGIN
     SELECT AVG(score * projects.weight) INTO @wasc
     FROM corrections
-     JOIN projects
+    RIGHT JOIN projects
     ON project_id = projects.id
     WHERE user_id = u_id;
     -- Storing the weighted average to the user.
