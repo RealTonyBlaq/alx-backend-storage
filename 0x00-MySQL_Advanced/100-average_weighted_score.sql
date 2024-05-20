@@ -9,7 +9,7 @@ CREATE PROCEDURE ComputeAverageWeightedScoreForUser (IN u_id INT)
 BEGIN
     SELECT AVG(score * projects.weight) INTO @wasc
     FROM corrections
-    FULL OUTER JOIN projects
+    OUTER JOIN projects
     ON project_id = projects.id
     WHERE user_id = u_id;
     -- Storing the weighted average to the user.
