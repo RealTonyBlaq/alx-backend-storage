@@ -16,7 +16,8 @@ BEGIN
 
         IF DONE THEN
             LEAVE read_loop;
-        END I
+        END IF;
+
         SELECT SUM(weight) INTO @wght FROM projects;
         SELECT SUM(score * projects.weight / @wght) INTO @wasc
         FROM corrections
@@ -28,6 +29,7 @@ BEGIN
         UPDATE users
         SET average_score = @wasc
         WHERE id = u_id;
+    END user_cursor;
 END$$
 
 DELIMITER ;
