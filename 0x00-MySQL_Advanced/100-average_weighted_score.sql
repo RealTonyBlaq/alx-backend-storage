@@ -10,8 +10,9 @@ BEGIN
     SELECT AVG(score * projects.weight) INTO @wasc
     FROM corrections
     JOIN projects
-    ON project_id = projects.id
-    WHERE user_id = u_id;
+    ON corrections.project_id = projects.id
+    WHERE corrections.user_id = u_id;
+
     -- Storing the weighted average to the user.
     UPDATE users
     SET average_score = @wasc
