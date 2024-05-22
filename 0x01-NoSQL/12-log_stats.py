@@ -5,3 +5,4 @@ from pymongo import MongoClient
 
 
 client = MongoClient()
+logs = client.logs.nginx
