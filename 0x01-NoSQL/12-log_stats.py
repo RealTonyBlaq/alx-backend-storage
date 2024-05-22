@@ -14,4 +14,4 @@ print('Methods:')
 for method in methods:
     print('\tmethod {}}: {}'.format(method, logs.count_documents({'method': method})))
 
-print(f'{logs.count_documents({'method': 'GET', 'path': '/status'})} status check')
+print('{} status check'.format())
