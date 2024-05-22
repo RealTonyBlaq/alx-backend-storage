@@ -16,4 +16,6 @@ for method in methods:
         method,
         logs.count_documents(filter={'method': method})))
 
-print('{} status check'.format(logs.count_documents(filter={'method': 'GET', 'path': '/status'})))
+print('{} status check'.format(logs.count_documents(filter={
+    'method': 'GET',
+    'path': '/status'})))
