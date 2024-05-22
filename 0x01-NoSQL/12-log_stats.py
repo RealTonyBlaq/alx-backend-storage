@@ -6,4 +6,6 @@ from pymongo import MongoClient
 
 client = MongoClient()
 logs = client.logs.nginx
+
 print('{} logs'.format(logs.count_documents()))
+print('')
