@@ -9,4 +9,5 @@ def schools_by_topic(mongo_collection, topic):
     """ Returns the list of school having a specific topic """
     mongo_collection.find()
     client = MongoClient()
-    coll = client.
+    coll = client.my_db.school
+    coll.find()
