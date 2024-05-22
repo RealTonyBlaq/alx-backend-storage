@@ -7,4 +7,4 @@ def top_students(mongo_collection):
     for student in students:
         scores = []
         for topic in student['topics']:
-            
+            scores.append(topic)
