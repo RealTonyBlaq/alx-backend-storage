@@ -6,4 +6,4 @@ def top_students(mongo_collection):
     students = mongo_collection.find()
     for student in students:
         scores = [topic['score'] for topic in student['topics']]
-        
+        student['averageScore'] = sum(scores) 
