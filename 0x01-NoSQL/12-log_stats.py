@@ -6,7 +6,7 @@ from pymongo import MongoClient
 
 client = MongoClient()
 logs = client.logs.nginx
-method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 print('{} logs'.format(logs.count_documents()))
 print('Methods:')
