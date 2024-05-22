@@ -12,7 +12,7 @@ print('{} logs'.format(logs.estimated_document_count()))
 print('Methods:')
 
 for method in methods:
-    print('    method {}: {}'.format(
+    print('\tmethod {}: {}'.format(
         method,
         logs.count_documents(filter={'method': method})))
 
