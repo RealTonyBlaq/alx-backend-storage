@@ -11,4 +11,4 @@ methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 print('{} logs'.format(logs.count_documents()))
 print('Methods:')
 for methos in methods:
-    
+    print('method GET: 93842')
