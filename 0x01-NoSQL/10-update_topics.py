@@ -9,4 +9,4 @@ def update_topics(mongo_collection, name, topics):
     mongo_collection.update_many()
     client = MongoClient()
     coll = client.my_db.school
-    
+    coll.update_many()
