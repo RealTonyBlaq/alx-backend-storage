@@ -11,4 +11,4 @@ methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 print('{} logs'.format(logs.count_documents()))
 print('Methods:')
 for method in methods:
-    print(f'\tmethod {method}: {logs.count_documents()}')
+    print(f'\tmethod {method}: {logs.count_documents({'method': method})}')
