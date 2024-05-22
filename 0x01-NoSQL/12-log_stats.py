@@ -8,7 +8,7 @@ client = MongoClient()
 logs = client.logs.nginx
 methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
-print('{} logs'.format(logs.))
+print('{} logs'.format(logs.estimated_document_count()))
 print('Methods:')
 
 for method in methods:
