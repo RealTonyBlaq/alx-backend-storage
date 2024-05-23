@@ -29,5 +29,9 @@ if __name__ == "__main__":
         else:
             result[ip] = 1
 
+    count = 0
     for key, value in result.items():
         print('\t{}: {}'.format(key, value))
+        count += 1
+        if count > 9:
+            break
