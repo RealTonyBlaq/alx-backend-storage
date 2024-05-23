@@ -2,6 +2,7 @@
 """ Script that provides some stats about Nginx logs stored in MongoDB """
 
 from pymongo import MongoClient
+from itertools import islice
 
 if __name__ == "__main__":
     client = MongoClient('mongodb://127.0.0.1:27017')
@@ -29,9 +30,9 @@ if __name__ == "__main__":
         else:
             result[ip] = 1
 
-    count = 0
-    for key, value in result.items():
+
+    stats = sorted(result.items(), key=lambda x: x[1], reverse=True)
+    top_ips = dict(islice(stats, 10))
+
+    for key, value in top_ips.items():
         print('\t{}: {}'.format(key, value))
-        count += 1
-        if count > 9:
-            break
