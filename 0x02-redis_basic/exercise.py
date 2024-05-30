@@ -17,7 +17,7 @@ class Cache:
     def count_calls(self, f: Callable) -> Callable:
         """ Returns a Callable """
         @wraps(f)
-        def 
+        def wrapper()
     @wraps()
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
