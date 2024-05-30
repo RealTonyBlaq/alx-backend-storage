@@ -7,13 +7,13 @@ import uuid
 from functools import wraps
 
 
-def count_calls(self, f: Callable) -> Callable:
+def count_calls(f: Callable) -> Callable:
     """ Defines a wrapper function """
     key = f.__qualname__
     @wraps(f)
-    def wrapper(*args, **kwargs):
+    def wrapper(self, *args, **kwargs):
         """ Returns the Callable f() """
-        self.
+        sel
         return f(*args, **kwargs)
     return wrapper
 
