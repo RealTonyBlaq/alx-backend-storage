@@ -2,7 +2,7 @@
 """ Cache Class """
 
 import redis
-from typing import Callable, Union
+from typing import Callable, Union, Optional
 import uuid
 
 
@@ -19,4 +19,4 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Cache)
+    def get(self, key: str, fn: Optional[Callable)
