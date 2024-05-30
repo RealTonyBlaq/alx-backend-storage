@@ -2,4 +2,7 @@
 """ Cache Class """
 
 import redis
-from typing import 
+
+
+class Cache:
+    
