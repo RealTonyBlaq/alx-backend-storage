@@ -8,7 +8,6 @@ import uuid
 
 class Cache:
     """ Defining the cache class. """
-
     def __init__(self) -> None:
         """ Initializing the attributes """
         self._redis = redis.Redis()
