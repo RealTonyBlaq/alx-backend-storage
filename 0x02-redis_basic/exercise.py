@@ -2,6 +2,7 @@
 """ Cache Class """
 
 import redis
+import uuid
 
 
 class Cache:
@@ -14,4 +15,5 @@ class Cache:
 
     def store(self, data):
         """ Stores data to Redis """
+        
         
