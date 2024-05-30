@@ -20,8 +20,9 @@ class Cache:
         def wrapper(data: Union[str, int, float, bytes]):
             """ Returns the Callable f() """
             return f(data)
-        
-    @wraps()
+        return wrapper
+
+    @count_calls
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
         key = str(uuid.uuid4())
