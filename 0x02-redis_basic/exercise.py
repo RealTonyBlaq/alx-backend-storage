@@ -22,3 +22,5 @@ class Cache:
     def get(self, key: str, fn: Optional[Callable]=None) -> None:
         """ Retrieve data from Redis """
         data = self._redis.get(key)
+        if data:
+            
