@@ -30,4 +30,6 @@ class Cache:
         """ Parameterizes Cache.get with the str function """
         return self.get(key, fn=str)
 
-    def get_int(self, )
+    def get_int(self, key: str) -> int:
+        """ Parameterizes Cache.get with the int function """
+        return self.get(key, fn=int)
