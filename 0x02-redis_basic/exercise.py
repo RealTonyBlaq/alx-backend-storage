@@ -9,9 +9,11 @@ from functools import wraps
 
 def count_calls(self, f: Callable) -> Callable:
     """ Defines a wrapper function """
+    key = f.__qualname__
     @wraps(f)
     def wrapper(*args, **kwargs):
         """ Returns the Callable f() """
+        self.
         return f(*args, **kwargs)
     return wrapper
 
