@@ -18,7 +18,8 @@ class Cache:
         """ Defines a wrapper function """
         @wraps(f)
         def wrapper(data: Union[str, int, float, bytes]):
-            """ """
+            """ Returns the Callable f() """
+            return f()
     @wraps()
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
