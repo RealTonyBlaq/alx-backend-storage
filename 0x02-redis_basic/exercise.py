@@ -4,7 +4,7 @@
 import redis
 from typing import Callable, Union, Optional
 import uuid
-import 
+from functools import wraps
 
 
 class Cache:
