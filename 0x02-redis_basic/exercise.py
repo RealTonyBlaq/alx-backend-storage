@@ -5,6 +5,7 @@ import redis
 import uuid
 
 
+
 class Cache:
     """ Defining the cache class """
 
