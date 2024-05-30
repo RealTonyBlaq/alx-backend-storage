@@ -19,4 +19,4 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, )
+    def get(self, key: str, fn: Cache)
