@@ -2,8 +2,8 @@
 """ Cache Class """
 
 import redis
-import uuid
 from typing import Union
+import uuid
 
 
 class Cache:
@@ -13,7 +13,6 @@ class Cache:
         """ Initializing the attributes """
         self._redis = redis.Redis()
         self._redis.flushdb()
-
 
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
