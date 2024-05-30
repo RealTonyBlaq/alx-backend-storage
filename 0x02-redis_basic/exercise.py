@@ -15,5 +15,5 @@ class Cache:
 
     def store(self, data):
         """ Stores data to Redis """
-        
+        key = uuid.uuid4()
         
