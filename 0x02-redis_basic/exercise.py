@@ -19,7 +19,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable]=None) -> None:
+    def get(self, key: str, fn: Optional[Callable]=None) -> Union[None, int, str]:
         """ Retrieve data from Redis """
         data = self._redis.get(key)
         if data:
