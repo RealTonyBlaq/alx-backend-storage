@@ -26,4 +26,6 @@ class Cache:
             return fn(data) if fn else data
         return None
 
-    def get_str(self, key):
+    def get_str(self, key: str) -> str:
+        """ Parameterizes Cache.get with the str function """
+        return 
