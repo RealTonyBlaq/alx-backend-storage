@@ -14,7 +14,8 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    
+    def count_calls(self, f):
+        """ """
     @wraps()
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
