@@ -23,4 +23,6 @@ class Cache:
         """ Retrieve data from Redis """
         data = self._redis.get(key)
         if data:
-            
+            if fn:
+                return fn(data)
+            return data
