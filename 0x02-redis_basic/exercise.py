@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
 """ Cache Class """
 
-import red
+import redis
+from typing import 
