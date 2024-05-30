@@ -6,7 +6,7 @@ import uuid
 
 
 class Cache:
-    """ Defiing the cache class """
+    """ Defining the cache class """
 
     def __init__(self) -> None:
         """ Initializing the attributes """
@@ -16,4 +16,5 @@ class Cache:
     def store(self, data: int | str | float | bytes) -> str:
         """ Stores data to Redis """
         key = uuid.uuid4()
+        self._redis
         
