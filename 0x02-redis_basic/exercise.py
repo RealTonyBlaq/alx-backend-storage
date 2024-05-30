@@ -15,9 +15,10 @@ class Cache:
         self._redis.flushdb()
 
     def count_calls(self, f: Callable) -> Callable:
-        """ Returns a Callable """
+        """ Defines a wrapper function """
         @wraps(f)
-        def wrapper(data: Union[str, int, float, bytes])
+        def wrapper(data: Union[str, int, float, bytes]):
+            """ """
     @wraps()
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
