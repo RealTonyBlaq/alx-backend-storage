@@ -9,5 +9,6 @@ class Cache:
 
     def __init__(self) -> None:
         """ Initializing the attributes """
+        self._redis = redis.Redis()
         
         
