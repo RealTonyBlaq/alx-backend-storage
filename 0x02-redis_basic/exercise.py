@@ -7,6 +7,15 @@ import uuid
 from functools import wraps
 
 
+def count_calls(self, f: Callable) -> Callable:
+    """ Defines a wrapper function """
+    @wraps(f)
+    def wrapper():
+        """ Returns the Callable f() """
+        return f(data)
+    return wrapper
+
+
 class Cache:
     """ Defining the cache class. """
     def __init__(self):
