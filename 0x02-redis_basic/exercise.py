@@ -10,6 +10,7 @@ from functools import wraps
 def count_calls(f: Callable) -> Callable:
     """ Defines a wrapper function """
     key = f.__qualname__
+
     @wraps(f)
     def wrapper(self, *args, **kwargs):
         """ Returns the Callable f() """
@@ -32,7 +33,8 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable]=None) -> Union[None, int, str]:
+    def get(self, key: str, fn: Optional[Callable] = None) -> Union[None,
+                                                                    int, str]:
         """ Retrieve data from Redis """
         data = self._redis.get(key)
         if data:
