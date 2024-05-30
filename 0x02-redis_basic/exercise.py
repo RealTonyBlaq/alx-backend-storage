@@ -28,4 +28,4 @@ class Cache:
 
     def get_str(self, key: str) -> str:
         """ Parameterizes Cache.get with the str function """
-        return 
+        return self.get()
