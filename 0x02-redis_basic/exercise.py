@@ -25,3 +25,5 @@ class Cache:
         if data:
             return fn(data) if fn else data
         return None
+
+    def get_str()
