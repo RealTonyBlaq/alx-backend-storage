@@ -22,11 +22,11 @@ def count_calls(f: Callable) -> Callable:
 
 def call_history(method: Callable) -> Callable:
     """ Defines the call_history wrapper function """
+    dec_key = method.__qualname__
 
     @wraps(method)
     def call_wrapper(self, *args, **kwargs):
         """ Returns the callable method() """
-        dec_key = method.__qualname__
         if args:
             for argument in args:
                 self._redis.rpush(f'{dec_key}:inputs', str(argument))
