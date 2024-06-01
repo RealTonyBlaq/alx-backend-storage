@@ -20,7 +20,9 @@ def count_calls(f: Callable) -> Callable:
     return wrapper
 
 
-def call_history()
+def call_history(method: Callable) -> Callable:
+    """ Defines the call_history wrapper function """
+    
 
 class Cache:
     """ Defining the cache class. """
