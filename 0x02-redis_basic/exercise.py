@@ -27,6 +27,7 @@ def call_history(method: Callable) -> Callable:
     def call_wrapper(self, *args, **kwargs):
         """ Returns the callable method() """
         
+        
 
 class Cache:
     """ Defining the cache class. """
