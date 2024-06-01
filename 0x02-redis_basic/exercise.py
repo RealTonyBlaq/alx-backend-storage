@@ -27,8 +27,15 @@ def call_history(method: Callable) -> Callable:
     def call_wrapper(self, *args, **kwargs):
         """ Returns the callable method() """
         dec_key = method.__qualname__
-        
-        
+        if args:
+            for argument in args:
+                self._redis.rpush(f'{dec_key}:inputs', str(argument))
+            value = method(self, *args, **kwargs)
+            self._redis.rpush(f'{dec_key}:outputs', value)
+            return value
+
+    return call_wrapper
+
 
 class Cache:
     """ Defining the cache class. """
@@ -37,6 +44,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @call_history
     @count_calls
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """ Stores data to Redis """
