@@ -28,8 +28,7 @@ def call_history(method: Callable) -> Callable:
     def call_wrapper(self, *args, **kwargs):
         """ Returns the callable method() """
         if args:
-            for argument in args:
-                self._redis.rpush(f'{dec_key}:inputs', str(argument))
+            self._redis.rpush(f'{dec_key}:inputs', str(args))
             value = method(self, *args, **kwargs)
             self._redis.rpush(f'{dec_key}:outputs', value)
             return value
