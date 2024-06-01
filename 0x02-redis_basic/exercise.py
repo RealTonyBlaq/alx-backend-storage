@@ -26,7 +26,7 @@ def call_history(method: Callable) -> Callable:
     @wraps(method)
     def call_wrapper(self, *args, **kwargs):
         """ Returns the callable method() """
-        
+        dec_key = method.
         
 
 class Cache:
