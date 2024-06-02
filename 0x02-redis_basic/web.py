@@ -20,3 +20,5 @@ def get_page(url: str) -> str:
     r.setnx(key, 0)
     r.incr(key)
     r.expire(key, timedelta(seconds=10))
+
+    return 
