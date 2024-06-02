@@ -3,7 +3,7 @@
 
 import requests
 import redis
-from time import time
+from datetime import timedelta
 
 
 def get_page(url: str) -> str:
@@ -19,4 +19,4 @@ def get_page(url: str) -> str:
     r = redis.Redis()
     r.setnx(key, 0)
     r.incr(key)
-    r.expire(key, 10)
+    r.expire(key, timedelta())
