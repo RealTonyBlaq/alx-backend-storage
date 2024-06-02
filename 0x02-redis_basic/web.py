@@ -16,11 +16,12 @@ def count(fn: Callable) -> Callable:
         """ Defining the wrapper function """
         key = f'count:{url}'
         r = redis.Redis()
-        content = fn(url)
-
-        r.setnx(key, 0)
-        r.incr(key)
-        r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
+        content = r.get(f'web_cache:{url}')
+        if not content:
+            content = fn(url)
+            r.setnx(key, 0)
+            r.incr(key)
+            r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
 
         return content
 
