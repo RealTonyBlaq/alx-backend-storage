@@ -12,4 +12,7 @@ def get_page(url: str) -> str:
     of a particular URL and returns it.
     """
     request = requests.get(url=url)
-    content = r.content
+    content = request.content
+
+    r = redis.Redis()
+    
