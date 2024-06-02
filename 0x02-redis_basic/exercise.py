@@ -13,9 +13,9 @@ def replay(fn: Callable) -> None:
     method = str(fn)
     if r.exists(method) > 0:
         call_count = r.get(method)
-        input_history = r.lrange(f'{str(fn)}:inputs', 0, -1)
-        output_history = r.lrange(f'{str(fn)}:outputs', 0, -1)
-        print(f'{str}')
+        input_history = r.lrange(f'{method}:inputs', 0, -1)
+        output_history = r.lrange(f'{method}:outputs', 0, -1)
+        print(f'{method} was called {call_count} times:')
     
 
 
