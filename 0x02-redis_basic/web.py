@@ -12,3 +12,4 @@ def get_page(url: str) -> str:
     of a particular URL and returns it.
     """
     r = requests.get(url=url)
+    content = r.content
