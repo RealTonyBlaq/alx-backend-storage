@@ -21,4 +21,4 @@ def get_page(url: str) -> str:
     r.incr(key)
     r.expire(key, timedelta(seconds=10))
 
-    return 
+    return content
