@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """ Get Page Module """
 
-import requests
+from typing import Callable
 import redis
+import requests
 from datetime import timedelta
 from functools import wraps
-from typing import Callable
 
 
 def count(fn: Callable) -> Callable:
