@@ -7,7 +7,7 @@ import uuid
 from functools import wraps
 
 
-def replay()
+def replay(fn: Callable) -> 
 
 
 def count_calls(f: Callable) -> Callable:
