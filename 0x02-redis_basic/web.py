@@ -17,4 +17,4 @@ def get_page(url: str) -> str:
     r = redis.Redis()
     r.setnx(f'count:{url}', 0)
     r.incr(f'count:{url}')
-    r.
+    r.expire()
