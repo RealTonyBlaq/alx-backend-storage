@@ -7,7 +7,8 @@ import uuid
 from functools import wraps
 
 
-def replay(fn: Callable) -> 
+def replay(fn: Callable) -> None:
+    """ Displays the history of calls of a particular function """
 
 
 def count_calls(f: Callable) -> Callable:
