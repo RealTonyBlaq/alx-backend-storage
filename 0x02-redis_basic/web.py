@@ -35,6 +35,6 @@ def get_page(url: str) -> str:
     of a particular URL and returns it.
     """
     request = requests.get(url=url)
-    content = request.content
+    content = request.text
 
     return content
