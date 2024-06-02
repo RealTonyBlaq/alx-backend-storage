@@ -4,7 +4,6 @@
 from typing import Callable
 import redis
 import requests
-from datetime import timedelta
 from functools import wraps
 
 
@@ -21,7 +20,7 @@ def count(fn: Callable) -> Callable:
             content = fn(url)
             r.setnx(key, 0)
             r.incr(key)
-            r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
+            r.setex(f'web_cache:{url}', 10, content)
 
         return content
 
