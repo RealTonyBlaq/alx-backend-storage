@@ -17,9 +17,8 @@ def replay(fn: Callable) -> None:
         output_history = r.lrange(f'{method}:outputs', 0, -1)
         print(f'{method} was called {call_count} times:')
         for i in range(int(call_count)):
-            print(f'{method}(*({input_history[i]}))')
+            print(f'{method}(*({input_history[i]},)) -> {output_history}')
     
-
 
 def count_calls(f: Callable) -> Callable:
     """ Defines a wrapper function """
