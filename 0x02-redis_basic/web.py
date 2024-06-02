@@ -19,4 +19,4 @@ def get_page(url: str) -> str:
     r = redis.Redis()
     r.setnx(key, 0)
     r.incr(key)
-    r.expire(key, timedelta())
+    r.expire(key, timedelta(seconds=10))
