@@ -11,5 +11,5 @@ def get_page(url: str) -> str:
     It uses the requests module to obtain the HTML content
     of a particular URL and returns it.
     """
-    r = requests.get(url=url)
+    request = requests.get(url=url)
     content = r.content
