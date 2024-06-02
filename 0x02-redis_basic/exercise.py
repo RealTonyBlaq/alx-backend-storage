@@ -12,7 +12,7 @@ def replay(fn: Callable) -> None:
     r = redis.Redis()
     if r.exists(str(fn)) > 0:
         call_count = r.get(str(fn))
-        history
+        input_history = r.lrange(str(fn), 0, -1)
     
 
 
