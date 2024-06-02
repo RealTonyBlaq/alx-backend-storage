@@ -16,6 +16,7 @@ def replay(fn: Callable) -> None:
         input_history = r.lrange(f'{method}:inputs', 0, -1)
         output_history = r.lrange(f'{method}:outputs', 0, -1)
         print(f'{method} was called {call_count} times:')
+        for 
     
 
 
