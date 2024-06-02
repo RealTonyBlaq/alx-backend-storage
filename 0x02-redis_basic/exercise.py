@@ -13,6 +13,7 @@ def replay(fn: Callable) -> None:
     if r.exists(str(fn)) > 0:
         call_count = r.get(str(fn))
         input_history = r.lrange(f'{str(fn)}:inputs', 0, -1)
+        output_history = r.lrange(f'{str(fn)}')
     
 
 
