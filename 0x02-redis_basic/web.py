@@ -4,8 +4,30 @@
 import requests
 import redis
 from datetime import timedelta
+from functools import wraps
+from typing import Callable
 
 
+def count(fn: Callable) -> Callable:
+    """ Counts how many times a URL is accessed """
+
+    @wraps(fn)
+    def wrapper(url):
+        """ Defining the wrapper function """
+        key = f'count:{url}'
+        r = redis.Redis()
+        content = fn(url)
+
+        r.setnx(key, 0)
+        r.incr(key)
+        r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
+
+        return content
+
+    return wrapper
+
+
+@count
 def get_page(url: str) -> str:
     """
     The core of the function is very simple.
@@ -14,11 +36,5 @@ def get_page(url: str) -> str:
     """
     request = requests.get(url=url)
     content = request.text
-    key = f'count:{url}'
-
-    r = redis.Redis()
-    r.setnx(key, 0)
-    r.incr(key)
-    r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
 
     return content
