@@ -10,6 +10,7 @@ from functools import wraps
 def replay(fn: Callable) -> None:
     """ Displays the history of calls of a particular function """
     r = redis.Redis()
+    if r.exists
     call_count = r.get(str(fn))
     
 
