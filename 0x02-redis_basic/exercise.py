@@ -7,6 +7,9 @@ import uuid
 from functools import wraps
 
 
+def replay()
+
+
 def count_calls(f: Callable) -> Callable:
     """ Defines a wrapper function """
     key = f.__qualname__
