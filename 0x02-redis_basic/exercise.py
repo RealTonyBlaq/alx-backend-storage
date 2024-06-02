@@ -10,14 +10,21 @@ from functools import wraps
 def replay(fn: Callable) -> None:
     """ Displays the history of calls of a particular function """
     r = redis.Redis()
-    method = str(fn)
+    method = str(fn.__qualname__)
+    print(method)
     if r.exists(method) > 0:
-        call_count = r.get(method)
+        call_count = int(r.get(method))
         input_history = r.lrange(f'{method}:inputs', 0, -1)
         output_history = r.lrange(f'{method}:outputs', 0, -1)
         print(f'{method} was called {call_count} times:')
-        for i in range(int(call_count)):
-            print(f'{method}(*({input_history[i]},)) -> {output_history}')
+        for i in range(call_count):
+            try:
+                output = output_history[i].decode('utf-8')
+                input = int(input_history[i])
+            except ValueError:
+                input = input_history[i].decode('utf-8')
+            finally:
+                print(f'{method}(*{input}) -> {output}')
     
 
 def count_calls(f: Callable) -> Callable:
