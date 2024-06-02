@@ -13,12 +13,12 @@ def get_page(url: str) -> str:
     of a particular URL and returns it.
     """
     request = requests.get(url=url)
-    content = request.content
+    content = request.text
     key = f'count:{url}'
 
     r = redis.Redis()
     r.setnx(key, 0)
     r.incr(key)
-    r.expire(key, timedelta(seconds=10))
+    r.setex(f'web_cache:{url}', timedelta(seconds=10), content)
 
     return content
