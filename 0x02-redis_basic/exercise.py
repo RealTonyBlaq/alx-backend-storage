@@ -17,15 +17,17 @@ def replay(fn: Callable) -> None:
         input_history = r.lrange(f'{method}:inputs', 0, -1)
         output_history = r.lrange(f'{method}:outputs', 0, -1)
         print(f'{method} was called {call_count} times:')
-        for i in range(call_count):
+        for input, output in zip(input_history, output_history):
             try:
-                output = output_history[i].decode('utf-8')
-                input = int(input_history[i])
-            except ValueError:
-                input = input_history[i].decode('utf-8')
-            finally:
-                print(f'{method}(*{input}) -> {output}')
-    
+                input = input.decode('utf-8')
+            except Exception:
+                input = ""
+            try:
+                output = output.decode('utf-8')
+            except Exception:
+                output = ""
+            print(f"{method}(*{input}) -> {output}")
+
 
 def count_calls(f: Callable) -> Callable:
     """ Defines a wrapper function """
