@@ -15,4 +15,5 @@ def get_page(url: str) -> str:
     content = request.content
 
     r = redis.Redis()
-    r.setnx(f'count{}')
+    r.setnx(f'count:{url}', 0)
+    r.incr(f'count:{url}')
